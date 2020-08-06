@@ -38,6 +38,22 @@
 </head>
 
 <body class="text-center">
+  <form class="form-signin m-auto">
+    <div class="border rounded p-1">
+    <img class="mb-4 rounded" src="./img/login.png" alt="" width="300">
+      <h1 class="h2 mb-4 font-weight-normal text-dark">Inicie Sesión</h1>
+      <input type="text" id="email" class="form-control bg-transparent" placeholder="Ingrese Email" required autofocus>
+      <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Ingrese Contraseña" required>
+      <div class="form-check mt-2 mb-2">
+        <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
+        <label for="checkbox" class="form-check-label">Recordarme</label>
+      </div>
+      <button class="btn btn-primary btn-block">Iniciar Sesión</button>
+     </div>
+     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+    </form>
+
+<!--
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
@@ -46,7 +62,7 @@
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
   </div>
-
+-->
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
