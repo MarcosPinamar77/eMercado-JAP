@@ -21,4 +21,3 @@ boton.addEventListener('click', validar)
 document.addEventListener("DOMContentLoaded", function (e) {
 
 });
-console.log(document.referrer)

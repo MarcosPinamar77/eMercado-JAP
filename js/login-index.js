@@ -4,7 +4,7 @@ const previousPage = document.referrer;
 if (!previousPage.includes('/eMercado-JAP/')) {
     location.href = 'login.html';
 }
-
+console.log(document.referrer)
 /*
 const previousPag = document.referrer;
 let prevUrl = document.referrer;
