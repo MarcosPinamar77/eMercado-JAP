@@ -1,6 +1,6 @@
 const previousPage = document.referrer;
 
-if (!previousPage.includes('http://127.0.0.1:5500/login.html')) {
+if (!previousPage.includes('/login.html')) {
     window.location.href = 'login.html';
 }
 
