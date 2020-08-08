@@ -1,7 +1,8 @@
 const previousPage = document.referrer;
 
+//Tener en cuenta que si trabajo desde local host tengo que cambiar /eMercado-JAP/ por login.html
 if (!previousPage.includes('/eMercado-JAP/')) {
-    window.location.href = 'login.html';
+    location.href = 'login.html';
 }
 
 /*
