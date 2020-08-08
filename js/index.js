@@ -1,6 +1,6 @@
 const previousPage = document.referrer;
 
-if (!previousPage.includes('/eMercado-JAP/login.html')) {
+if (!previousPage.includes('/eMercado-JAP/')) {
     window.location.href = 'login.html';
 }
 
