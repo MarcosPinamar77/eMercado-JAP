@@ -2,6 +2,7 @@
 function validar() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
+    
     if (email != 0 & password != 0) {
         window.location.href = 'index.html';
     } else {
@@ -20,3 +21,4 @@ boton.addEventListener('click', validar)
 document.addEventListener("DOMContentLoaded", function (e) {
 
 });
+console.log(document.referrer)
