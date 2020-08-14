@@ -5,3 +5,4 @@ if (!previousPage.includes('login.html') && !previousPage.includes('categories.h
     location.href = 'login.html';
 }
 
+

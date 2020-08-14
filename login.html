@@ -14,7 +14,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <style>
-    html, body{
+    html,
+    body {
       height: 100%;
     }
 
@@ -35,35 +36,47 @@
       margin: auto;
     }
   </style>
+
+  <!--Firebase Auth-->
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 </head>
 
 <body class="text-center">
-  
-  <form class="form-signin m-auto block">
-    <div class="border rounded p-1">
-    <img class="mb-4 rounded" src="./img/login.png" alt="" width="300">
-      <h1 class="h2 mb-4 font-weight-normal text-dark">Inicie Sesión</h1>
-      <input type="text" id="email" class="form-control bg-transparent" placeholder="Ingrese Email" required autofocus>
-      <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Ingrese Contraseña" required>
-      <div class="form-check mt-2 mb-2">
-        <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
-        <label for="checkbox" class="form-check-label">Recordarme</label>
+  <div class="form-signin m-auto block">
+  <div class="border rounded p-1">
+    <form class="form-signin m-auto block" id="form-login">
+      <div class="">
+        <img class="mb-4 rounded" src="./img/login.png" alt="" width="300">
+        <h1 class="h2 mb-4 font-weight-normal text-dark">Inicie Sesión</h1>
+        <input type="email" id="email" class="form-control bg-transparent" placeholder="Ingrese Email" required
+          autofocus>
+        <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Ingrese Contraseña"
+          required>
+        <div class="form-check mt-2 mb-2">
+          <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
+          <label for="checkbox" class="form-check-label">Recordarme</label>
+        </div>
+        <input type="submit" class="btn btn-primary btn-block" id="boton" value="Iniciar Sesión"></input>
       </div>
-      <input type="button" class="btn btn-primary btn-block" id="boton" value="Iniciar Sesión"></input>
-     </div>
-     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
     </form>
-<!--
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 16/08/2020) -> Punto 3 y 4.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div id="div-btn-google">
+      <button class="btn btn-secondary btn-block mt-2" id="login-google">Acceder con google</button>
     </div>
+    </div>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </div>
--->
+  
+ 
+ 
+  <!--Firebase Auth-->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <!--<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>-->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
+
 </html>

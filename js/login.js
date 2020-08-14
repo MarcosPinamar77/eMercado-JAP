@@ -21,3 +21,8 @@ boton.addEventListener('click', validar)
 document.addEventListener("DOMContentLoaded", function (e) {
 
 });
+/*
+const CLIENT_ID = '753458730460-h4k8sub4vc9c7tl8t3coficmltrbdvp1.apps.googleusercontent.com'
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+ui.start('#firebaseui-auth-container')
+*/

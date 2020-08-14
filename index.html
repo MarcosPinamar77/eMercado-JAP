@@ -12,6 +12,11 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+
+    <!--Firebase Auth-->
+   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"/>
+
+
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -21,6 +26,7 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <a class="py-2 d-none d-md-inline-block" href="login.html" id="cerrar-sesion">Cerrar Sesión</a>
       </div>
     </nav>
     <main role="main">
@@ -102,9 +108,18 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
+
+      <!--Firebase Auth-->
+      <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+   <!--<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>-->
+   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
     <script src="./js/login-index.js"></script>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
   </body>
 </html>
+
+

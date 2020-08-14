@@ -45,3 +45,67 @@ var getJSONData = function(url){
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
 });
+
+
+ // Your web app's Firebase configuration
+ let firebaseConfig = {
+  apiKey: "AIzaSyBnzJoSxUWtkbnu1j0iwjWgylUf5Xpw0Ns",
+  authDomain: "ejemplo-clase-e5222.firebaseapp.com",
+  databaseURL: "https://ejemplo-clase-e5222.firebaseio.com",
+  projectId: "ejemplo-clase-e5222",
+  storageBucket: "ejemplo-clase-e5222.appspot.com",
+  messagingSenderId: "204571699995",
+  appId: "1:204571699995:web:7a131f2e88292549a541be"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+let loginGoogle = document.querySelector('#login-google');
+let logoutGoogle = document.querySelector('#logout-google');
+let logout = document.querySelector('#cerrar-sesion');
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    console.log(user)
+    cerrarSesion();
+    console.log(user.displayName)
+    //window.location.href = 'index.html';
+    
+    const displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+ 
+    // ...
+  } else {
+    // User is signed out.
+    console.log("No existe user");
+    iniciarSesion();
+    // ...
+  }
+});
+
+function iniciarSesion(){
+  loginGoogle.addEventListener('click', async()=>{
+    //console.log("Click")
+    try{
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(){
+        window.location.href = 'index.html';
+      });
+    } catch (error){
+      console.log(error)
+    }
+  })
+  
+}
+
+function cerrarSesion(){
+logout.addEventListener('click', ()=>{
+  firebase.auth().signOut()
+})
+}
