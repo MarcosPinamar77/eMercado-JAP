@@ -49,9 +49,11 @@
       <div class="">
         <img class="mb-4 rounded" src="./img/login.png" alt="" width="300">
         <h1 class="h2 mb-4 font-weight-normal text-dark">Inicie Sesión</h1>
-        <input type="email" id="email" class="form-control bg-transparent" placeholder="Ingrese Email" required
+        <input type="text" id="name" class="form-control mt-1 bg-transparent" placeholder="Ingrese su nombre"
+          required>
+        <input type="email" id="email" class="form-control bg-transparent" placeholder="Ingrese email" required
           autofocus>
-        <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Ingrese Contraseña"
+        <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Ingrese contraseña"
           required>
         <div class="form-check mt-2 mb-2">
           <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
@@ -67,7 +69,23 @@
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
   </div>
   
- 
+  <script>
+    /*
+    function guardar() {
+        // si el campo está vacío, muestra un alert indicando el error
+
+            let name = document.getElementById('email').value
+            
+            if (name == 0) {
+                alert("Error")
+            } else {
+                localStorage.setItem('usuario', name);
+                console.log(name)
+            }
+        
+    }
+*/
+    </script>
  
   <!--Firebase Auth-->
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>

@@ -19,14 +19,39 @@
 
   </head>
   <body>
-    <nav class="site-header sticky-top py-1 bg-dark">
-      <div class="container d-flex flex-column flex-md-row justify-content-between">
-        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-        <a class="py-2 d-none d-md-inline-block" href="login.html" id="cerrar-sesion">Cerrar Sesión</a>
+    <nav class="navbar navbar-expand-md navbar-dark site-header sticky-top py-2 bg-dark">
+      <a href="index.html" class="navbar-brand d-md-none">e-Mercado</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav container d-flex flex-column flex-md-row justify-content-between">
+              <li class="nav-item active">
+                <a class="py-2 d-md-inline-block nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="py-2 d-md-inline-block nav-link" href="categories.html">Categorías</a>
+              </li>
+              <li class="nav-item">
+                 <a class="py-2 d-md-inline-block nav-link" href="products.html">Productos</a>
+              </li>
+              <li class="nav-item">
+                  <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
+              </li>
+              <li class="nav-item">
+                  <a class="py-2 d-md-inline-block nav-link" href="cart.html">Mi carrito</a>
+              </li>
+                        <li class="nav-item dropdown" >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 <span id="user-nav">Nombre</span> 
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+                  <a class="dropdown-item" href="login.html" id="cerrar-sesion">Cerrar Sesión</a>
+                </div>
+              </li>
+          </ul>
       </div>
     </nav>
     <main role="main">
@@ -108,7 +133,12 @@
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
       </div>
     </footer>
-
+    <script>
+      // setea el dato del usuario en el span de id user
+     /*
+      let user = document.getElementById('user');
+      user.innerHTML += localStorage.getItem('usuario');*/
+  </script>
       <!--Firebase Auth-->
       <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
    <!--<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>-->

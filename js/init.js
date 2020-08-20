@@ -109,3 +109,6 @@ logout.addEventListener('click', ()=>{
   firebase.auth().signOut()
 })
 }
+
+let user_nav = document.getElementById('user-nav');
+user_nav.innerHTML = localStorage.getItem('usuario');
