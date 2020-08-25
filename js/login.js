@@ -4,11 +4,12 @@ function validar() {
     let password = document.getElementById('password').value;
     let name = document.getElementById('name').value;
     
-    if (email != 0 & password != 0 && name != 0) {
+    if ((email == 0 || !email.includes('@') || !email.includes('.')) & password != 0 && name != 0) {
+        alert("Email o Name o Password Incorrecto");
+    } else {
         localStorage.setItem('usuario', name);
         window.location.href = 'index.html';
-    } else {
-        alert("Email o Name o Password Incorrecto");
+        
     }
     // window.open("index.html", "_self"); 
 }

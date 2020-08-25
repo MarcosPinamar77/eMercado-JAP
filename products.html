@@ -67,14 +67,25 @@
       <p class="lead">Verás aquí todos los productos del sitio.</p>
   </div>
   <div class="container">
+    <div class="row justify-content-end"> 
+        <div class="col-md-8"></div> 
+        <div class="col-md-4 col-sm-12 mb-2 container">
+          <form class="form-inline d-flex md-form form-sm active-cyan-2 mt-2 justify-content-end">
+            <input class="form-control form-control-sm mr-3 w-75 " type="search" placeholder="Search"
+              aria-label="Search">
+              <button class="btn"><i class="fas fa-search" aria-hidden="true"></i></button>
+            
+          </form>
+        </div>
+    </div>
     <div class="row">
         <div class="col text-right">
-            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+            <div class="btn-group btn-group-toggle mb-2" data-toggle="buttons">
                 <label class="btn btn-light active" id="priceAsc" >
-                    <input type="radio" name="options" autocomplete="off" checked>Precio menor a mayor
+                    <input type="radio" name="options" autocomplete="off" checked>Precio <i class="fas fa-sort-numeric-down"></i>
                 </label>
                 <label class="btn btn-light" id="priceDesc" >
-                    <input type="radio" name="options" autocomplete="off">Precio mayor a menor
+                    <input type="radio" name="options" autocomplete="off">Precio <i class="fas fa-sort-numeric-down-alt"></i>
                 </label>
                 <label class="btn btn-light" id="sortByRel" >
                     <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
