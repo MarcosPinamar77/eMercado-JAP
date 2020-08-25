@@ -66,8 +66,51 @@
       <h2>Productos</h2>
       <p class="lead">Verás aquí todos los productos del sitio.</p>
   </div>
+  <div class="container">
+    <div class="row">
+        <div class="col text-right">
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                <label class="btn btn-light active" id="priceAsc" >
+                    <input type="radio" name="options" autocomplete="off" checked>Precio menor a mayor
+                </label>
+                <label class="btn btn-light" id="priceDesc" >
+                    <input type="radio" name="options" autocomplete="off">Precio mayor a menor
+                </label>
+                <label class="btn btn-light" id="sortByRel" >
+                    <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Relevancia
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-md-6"></div>
+        <div class="col-md-6 col-sm-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col">
+              <p class="font-weight-normal text-right my-2">Price</p>
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="min." id="priceMin">
+            </div>
+            <div class="col">
+              <input class="form-control" type="number" placeholder="máx." id="priceMax">
+            </div>
+            <div class="col-3 p-0">
+              <div class="btn-group" role="group">
+                <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
+                <button class="btn btn-link btn-sm" id="clean">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="container" id="product-container"></div>
+    </div>
+    
+    </div>
 
-    <div class="container p-5" id="product-container"></div>
     <footer class="text-muted bg-light">
       <div class="container">
         <p class="float-right">
