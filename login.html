@@ -13,6 +13,8 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="./css/open-iconic.min.css">
   <style>
     html,
     body {
@@ -63,35 +65,21 @@
       </div>
     </form>
     <div id="div-btn-google">
-      <button class="btn btn-secondary btn-block mt-2" id="login-google">Acceder con google</button>
+      <button class="btn btn-primary btn-block mt-2" id="login-google"><i class="fab fa-google text-light"></i> Acceder con google</button>
     </div>
     </div>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2019-2021</p>
   </div>
   
-  <script>
-    /*
-    function guardar() {
-        // si el campo está vacío, muestra un alert indicando el error
-
-            let name = document.getElementById('email').value
-            
-            if (name == 0) {
-                alert("Error")
-            } else {
-                localStorage.setItem('usuario', name);
-                console.log(name)
-            }
-        
-    }
-*/
-    </script>
  
   <!--Firebase Auth-->
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
   <!--<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>-->
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+
+  <!--Iconos-->
+  <script src="https://kit.fontawesome.com/0d5ff3beb4.js" crossorigin="anonymous"></script>
 
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>

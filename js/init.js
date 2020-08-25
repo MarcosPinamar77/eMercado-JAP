@@ -69,6 +69,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
     console.log(user)
     cerrarSesion();
+    let user_nav = document.getElementById('user-nav');
+    user_nav.innerHTML = user.displayName;
     console.log(user.displayName)
     //window.location.href = 'index.html';
     

@@ -63,7 +63,7 @@ function showProducts() {
                             <small class="text-muted">${product.soldCount} vendidos</small>
                             </div>
                             <p>${product.description}</p>
-                            <p class="text-muted">${product.cost} usd</p>
+                            <p class="text-muted">${product.cost} ${product.currency}</p>
                         </div> 
          
             </div>
