@@ -58,11 +58,14 @@ function showProducts() {
                     <img src="${product.imgSrc}"  class="img-thumbnail">
                 </div>
                         <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
                             <h4>${product.name}</h4>
+                            <small class="text-muted">${product.soldCount} vendidos</small>
+                            </div>
                             <p>${product.description}</p>
                             <p class="text-muted">${product.cost} usd</p>
                         </div> 
-                    </div> 
+         
             </div>
         </a>
       `  
