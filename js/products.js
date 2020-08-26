@@ -89,6 +89,57 @@ function sortAndShowProducts(sortCriteria, productsArray){
 }
 
 
+
+
+//-------------------------------------------------------------
+ // Buscador de Productos
+
+ const searchInput = document.querySelector('#searchForm');
+ const searchButton = document.querySelector('#searchButton');
+
+ function filtrar(){
+    const searchText = searchInput.value.toLowerCase();
+    let htmlToAppend = "";  
+    //console.log(searchText);
+
+    for(item in currentProductsArray){
+        let product = currentProductsArray[item];
+        let title = product.name.toLowerCase();
+        let description = product.description.toLowerCase();
+        
+        if((title.indexOf(searchText) !== -1) || (description.indexOf(searchText) !== -1)){
+           //newList.push(product);
+           htmlToAppend += `
+           <a href="./product-info.html" class="list-group-item list-group-item-action">
+               <div class="row">
+                   <div class="col-3">
+                       <img src="${product.imgSrc}"  class="img-thumbnail">
+                   </div>
+                           <div class="col">
+                           <div class="d-flex w-100 justify-content-between">
+                               <h4>${product.name}</h4>
+                               <small class="text-muted">${product.soldCount} vendidos</small>
+                               </div>
+                               <p>${product.description}</p>
+                               <p class="text-muted">${product.cost} ${product.currency}</p>
+                           </div> 
+            
+               </div>
+           </a>
+         `  
+        }
+        document.getElementById('product-container').innerHTML = htmlToAppend;
+    }
+    
+  }
+ 
+
+ 
+
+
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -96,6 +147,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     getJSONData(PRODUCTS_URL)
         .then(response => {
             if (response.status === "ok") {
+                //const productos = response.data;
                 sortAndShowProducts(ORDER_ASC_BY_PRICE, response.data);
             }
         })
@@ -141,4 +193,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     
             showProducts();
         });
+        searchInput.addEventListener('keyup', filtrar)
  });
+
