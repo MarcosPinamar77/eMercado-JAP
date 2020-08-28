@@ -79,6 +79,49 @@ function sortAndShowCategories(sortCriteria, categoriesArray){
     showCategoriesList();
 }
 
+//-----------------------
+//Buscador de categorias
+// Buscador de Productos
+
+const searchInput = document.querySelector('#searchForm');
+const searchButton = document.querySelector('#searchButton');
+
+function filtrar(){
+   const searchText = searchInput.value.toLowerCase();
+   let htmlToAppend = "";  
+   //console.log(searchText);
+
+   for(item in currentCategoriesArray){
+       let category = currentCategoriesArray[item];
+       let title = category.name.toLowerCase();
+       let description = category.description.toLowerCase();
+       
+       if((title.indexOf(searchText) !== -1) || (description.indexOf(searchText) !== -1)){
+          //newList.push(categories);
+          htmlToAppend += `
+          <a href="category-info.html" class="list-group-item list-group-item-action">
+          <div class="row">
+              <div class="col-3">
+                  <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
+              </div>
+              <div class="col">
+                  <div class="d-flex w-100 justify-content-between">
+                      <h4 class="mb-1">`+ category.name +`</h4>
+                      <small class="text-muted">` + category.productCount + ` artículos</small>
+                  </div>
+                  <p class="mb-1">` + category.description + `</p>
+              </div>
+          </div>
+      </a>
+        `  
+       }
+       document.getElementById('cat-list-container').innerHTML = htmlToAppend;
+   }
+   
+ }
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -133,4 +176,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    searchInput.addEventListener('keyup', filtrar)
 });
