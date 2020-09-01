@@ -95,11 +95,11 @@ function sortAndShowProducts(sortCriteria, productsArray){
  // Buscador de Productos
 
  const searchInput = document.querySelector('#searchForm');
- const searchButton = document.querySelector('#searchButton');
+// const searchButton = document.querySelector('#searchButton');
 
  function filtrar(){
     const searchText = searchInput.value.toLowerCase();
-    let htmlToAppend = "";  
+    let htmlToAppend = '';  
     //console.log(searchText);
 
     for(item in currentProductsArray){
@@ -108,7 +108,6 @@ function sortAndShowProducts(sortCriteria, productsArray){
         let description = product.description.toLowerCase();
         
         if((title.indexOf(searchText) !== -1) || (description.indexOf(searchText) !== -1)){
-           //newList.push(product);
            htmlToAppend += `
            <a href="./product-info.html" class="list-group-item list-group-item-action">
                <div class="row">
@@ -128,13 +127,19 @@ function sortAndShowProducts(sortCriteria, productsArray){
            </a>
          `  
         }
+       
+        }
         document.getElementById('product-container').innerHTML = htmlToAppend;
-    }
-    
-  }
- 
+        if(htmlToAppend.innerHTML === ''){
+            document.getElementById('product-container').innerHTML =`
+              <h2>No result</h2>
+              `
+            //document.getElementById('product-container').innerHTML = htmlToAppend;
+        }
+        //document.getElementById('product-container').innerHTML = htmlToAppend;
 
- 
+    }
+ //---------------------------------------------------------------
 
 
 
