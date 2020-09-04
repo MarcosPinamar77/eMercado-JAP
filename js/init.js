@@ -71,7 +71,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     cerrarSesion();
     let user_nav = document.getElementById('user-nav');
     user_nav.innerHTML = user.displayName;
-    console.log(user.displayName)
+    localStorage.setItem('usuario', user.displayName);
+    console.log(user.displayName);
     //window.location.href = 'index.html';
     
     const displayName = user.displayName;

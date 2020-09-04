@@ -14,8 +14,8 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <!--Firebase-->
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"/>
-   
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
@@ -27,42 +27,44 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav container d-flex flex-column flex-md-row justify-content-between">
-            <li class="nav-item">
-              <a class="py-2 d-md-inline-block nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="py-2 d-md-inline-block nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item active">
-               <a class="py-2 d-md-inline-block nav-link" href="products.html">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item">
-                <a class="py-2 d-md-inline-block nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
-            </li>
-            <li class="nav-item dropdown" >
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <span id="user-nav">Nombre</span> 
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
-                <a class="dropdown-item" href="login.html" id="cerrar-sesion">Cerrar Sesión</a>
-              </div>
-            </li>
-        </ul>
+        <li class="nav-item">
+          <a class="py-2 d-md-inline-block nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2 d-md-inline-block nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item active">
+          <a class="py-2 d-md-inline-block nav-link" href="products.html">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
+        </li>
+        <li class="nav-item">
+          <a class="py-2 d-md-inline-block nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i> Mi
+            carrito</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <span id="user-nav">Nombre</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a class="dropdown-item" href="login.html" id="cerrar-sesion">Cerrar Sesión</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </nav>
-  
-  <div class="container p-5">
+<main role="main">
+  <div class="container">
     <!-- <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div> -->
-    <main role="main">
+    
       <div class="container">
         <div class="text-center p-4">
           <h2>Descripción del producto</h2>
@@ -70,38 +72,70 @@
           <!-- <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría
             seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p> -->
         </div>
-        <h3 id="productName"></h3>
-        <hr class="my-3">
-        <dl>
-          <dt>Descripción</dt>
-          <dd>
-            <p id="productDescription"></p>
-          </dd>
-  
-          <dt>Costo</dt>
-          <dd>
-            <p id="price"></p>
-          </dd>
+      </div>
 
-          <dt>Cantidad de vendidos</dt>
-          <dd>
-            <p id="soldCount"></p>
-          </dd>
-
-          <dt>Categoría</dt>
-          <dd>
-            <p id="category"></p>
-          </dd>
-  
-          <dt>Imágenes ilustrativas</dt>
-          <dd>
-            <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <img src="./img/prod1.jpg" alt="" class="img-fluid">
+          </div>
+          <div class="col-4 d-flex flex-column justify-content-between">
+            <div>
+            <h3><b id="productName"></b></h3>
+            <ul class="list-group list-group-flush pl-0">
+              <li class="list-group-item pl-0 pt-1 pb-1" id="price"></li>
+              <li class="list-group-item pl-0 pt-1 pb-1" id="category">Categoría: Autos</li>
+              <li class="list-group-item pl-0 pt-1 pb-1" id="soldCount">Cantidad de vendidos: 14</li>
+            </ul>
             </div>
-          </dd>
-        </dl>
+            <div class="mb-0">
+              <h5>Descripción</h5>
+              <p id="productDescription" class="mb-0"></p>
+            </div>
+          </div>
+        </div>
+        
+        
+      </div>
+      <div class="container">
+        <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
+      </div>
+
+      <div class="container">
+        <h3>Comentarios</h3>
+        <hr class="my-3">
+      </div>
+      <div class="container" id="comment-section"></div>
+
+      <div class="container mt-3">
+        <div class="row">
+          <div class="col-8">
+            <div class="col pl-0 mb-1">
+                <button class="btn btn-hover" id="starOne"><i class="fas fa-star"></i></button>
+                <button class="btn btn-hover" id="starTwo"><i class="fas fa-star"></i></button>
+                <button class="btn btn-hover" id="starThree"><i class="fas fa-star"></i></button>
+                <button class="btn btn-hover" id="starFour"><i class="fas fa-star"></i></button>
+                <button class="btn btn-hover" id="starFive"><i class="fas fa-star"></i></button>
+              </select>
+            </div>
+          <textarea class="form-control" id="comment-input" rows="4"></textarea>
+          <button class="btn btn-info btn-sm mt-2" id="comment-send">Enviar comentario</button>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="container p-3">
         <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos</a>
       </div>
-    </main>
+
+  </div>
+
+  
+
+  
+  </main>
+  
   </div>
   <footer class="text-muted">
     <div class="container">
@@ -121,14 +155,14 @@
     </div>
   </div>
 
-    <!--Firebase Auth-->
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-    <!--Iconos-->
+  <!--Firebase Auth-->
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  <!--Iconos-->
   <script src="https://kit.fontawesome.com/0d5ff3beb4.js" crossorigin="anonymous"></script>
-  
+
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
