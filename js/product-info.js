@@ -182,22 +182,20 @@ function showRelated(relatedArray){
         let prodPosition = productList[relPosition]
       //console.log(relatedArray)
       relatedContainer.innerHTML +=`
-      <a href="./product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="${prodPosition.imgSrc}"  class="img-thumbnail">
-                </div>
-                        <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4>${prodPosition.name}</h4>
-                            <small class="text-muted">${prodPosition.soldCount} vendidos</small>
-                            </div>
-                            <p>${prodPosition.description}</p>
-                            <p class="text-muted">${prodPosition.cost} ${prodPosition.currency}</p>
-                        </div> 
-         
-            </div>
-        </a>
+            
+                <div class="card mr-4" style="width: 15rem;">
+                    <img src="${prodPosition.imgSrc}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${prodPosition.name}</h5>
+                        <small class="text-muted">${prodPosition.soldCount} vendidos</small>
+                        
+                        <p class="card-text">${prodPosition.description}</p>
+                        <div class="d-flex justify-content-center align-items-end">
+                        <a href="./product-info.html" class="btn btn-primary">Ver Producto</a>
+                        </div>
+                    </div>
+              </div>
+          
       `
       }
       
