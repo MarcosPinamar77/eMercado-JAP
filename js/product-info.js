@@ -5,6 +5,7 @@ let productName = document.getElementById("productName");
 let productDescription = document.getElementById("productDescription");
 let price = document.getElementById("price");
 let category = document.getElementById("category");
+let imageCarousel = document.getElementById('image-carousel');
 let imageContainer = document.getElementById('productImagesGallery');
 let vendidos = document.getElementById('soldCount');
 let commentSection = document.getElementById('comment-section');
@@ -15,6 +16,7 @@ let starTwo = document.getElementById('starTwo');
 let starThree = document.getElementById('starThree');
 let starFour = document.getElementById('starFour');
 let starFive = document.getElementById('starFive');
+
 let starSelected;
 let starContainer;
 
@@ -125,7 +127,35 @@ function showProductInformation(array) {
   price.innerHTML += array.cost + " " + array.currency;
   category.innerHTML += array.category;
   vendidos.innerHTML += array.soldCount;
-
+  imageCarousel.innerHTML =`
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="${array.images[0]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[1]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[2]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[3]}" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="${array.images[4]}" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  `
 
   for (item in array.images) {
     imageContainer.innerHTML += `
@@ -224,5 +254,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
   });
   
   commentSend.addEventListener('click', addComment)
-  
+  $(function () {
+    $('.carousel').carousel({
+        interval: 1000
+    })
+  });
 });
