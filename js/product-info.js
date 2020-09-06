@@ -148,7 +148,7 @@ function showComments(array) {
 
 //Función para añadir un comentario
 function addComment() {
-
+  let date = new Date();
   if (commentInput.value != 0) {
     commentSection.innerHTML += `
     <div class="row mb-2">
@@ -160,7 +160,7 @@ function addComment() {
               <h4 class="text-primary"><b>${localStorage.getItem('usuario')}</b></h4>
 
             </div>
-            <h6 class="text-muted time">15/15/15</h6>
+            <h6 class="text-muted time">${date.getFullYear()+"-"+(date.getMonth() +1)+"-"+date.getDate()+" "+date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()}</h6>
             <p><span class="badge badge-light" id="punctuationComment">${starSelected}</span></p>
 
           </div>
