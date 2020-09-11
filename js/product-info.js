@@ -18,7 +18,7 @@ let starSelected;
 function showProductInformation(array) {
   prodInfo.innerHTML =`
   <div class="row">
-          <div class="col-7 pl-1" id="image-carousel">
+          <div class="col-lg-8 pl-1" id="image-carousel">
               <div id="carousel" class="carousel slide" data-ride="carousel">
                   <div class="carousel-inner">
                       <div class="carousel-item active">
@@ -47,17 +47,17 @@ function showProductInformation(array) {
                   </a>
                </div>
           </div>
-          <div class="col-4 d-flex flex-column justify-content-between">
+          <div class="col-lg-4 d-flex flex-column mt-1">
                 <div>
-                <h3><b id="productName">${array.name}</b></h3>
+                <h3 mb-2><b id="productName">${array.name}</b></h3>
                 <ul class="list-group list-group-flush pl-0">
-                  <li class="list-group-item pl-0 pt-1 pb-1" id="price">${array.cost} ${array.currency}</li>
-                  <li class="list-group-item pl-0 pt-1 pb-1" id="category">${array.category}</li>
-                  <li class="list-group-item pl-0 pt-1 pb-1" id="soldCount">${array.soldCount} Vendidos</li>
+                  <li class="list-group-item pl-0 pt-2 pb-2" id="price">${array.cost} ${array.currency}</li>
+                  <li class="list-group-item pl-0 pt-2 pb-2" id="category">${array.category}</li>
+                  <li class="list-group-item pl-0 pt-2 pb-2" id="soldCount">${array.soldCount} Vendidos</li>
                 </ul>
                 </div>
-              <div class="mb-0">
-                <h5>Descripción</h5>
+              <div class="mb-0 align-middle mt-3">
+                <h4>Descripción</h4>
                 <p id="productDescription" class="mb-0">${array.description}</p>
               </div>
           </div>
@@ -90,7 +90,7 @@ function showRelated(relatedArray){
         let prodPosition = productList[relPosition]
       //console.log(relatedArray)
       relatedContainer.innerHTML +=`
-              <div class="clas-body d-flex flex-column card mr-2 col-3 p-0">
+              <div class="clas-body d-flex flex-column card mr-2 col-lg-3 col-md-6 col-sm-6 p-0">
                 <div class="card-body p-2">
                     <img src="${prodPosition.imgSrc}" alt="${prodPosition.name}" class="card-img-top">
                     <div class="pt-1 pb-1">
@@ -179,7 +179,7 @@ function addComment() {
   starTwo.style.color = 'black';
   starThree.style.color = 'black';
   starFour.style.color = 'black';
-  starFive.style.color = 'black';
+  starFive.style.color = 'black';00
 }
 
 //Función para que la calificación seleccionada se muestre en pantalla

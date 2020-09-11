@@ -15,68 +15,46 @@
   <link href="css/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="./css/open-iconic.min.css">
-  <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-align: center;
-      align-items: center;
-      padding-top: 40px;
-      padding-bottom: 40px;
-      background-color: #f5f5f5;
-    }
-
-    .signin {
-      width: 100%;
-      max-width: 330px;
-      padding: 15px;
-      margin: auto;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/login.css">
+ 
 
   <!--Firebase Auth-->
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-  <style>
-    body {
-      background-image: url('./img/bg1.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    </style>
 </head>
 
 <body class="text-center">
-  <div class="form-signin m-auto block">
-  <div class="border rounded p-1">
-    <form class="form-signin m-auto block" id="form-login" action="index.html">
-      <div class="">
-        <img class="mb-4 rounded" src="./img/login.png" alt="" width="300">
-        <h1 class="h2 mb-4 font-weight-normal text-dark">Inicie Sesión</h1>
-        <input type="text" id="user" class="form-control mt-1 bg-transparent text-dark" placeholder="Usuario"
-          required>
-        
-        <input type="email" id="email" class="form-control bg-transparent text-dark mt-1" placeholder="Email" required>
-        
-        <input type="password" id="password" class="form-control mt-1 bg-transparent" placeholder="Contraseña"
-          required>
-        <div class="form-check mt-2 mb-2">
-          <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
-          <label for="checkbox" class="form-check-label">Recordarme</label>
+  <div class="container row m-auto shadow-lg mb-5 pl-0 pr-0 rounded contentAll">
+    <div class="col-7 p-0 m-0">
+      <img src="./img/bg.2.jpg" alt="e-commerce" class="img-fluid">
+    </div>
+    <div class="pb-0 pt-3 pl-2 pr-2 col-5 form-container my-auto">
+      <form class="form-signin m-auto block" id="form-login" action="index.html">
+        <div class="">
+          <!-- <img class="mb-4 rounded" src="./img/login.png" alt="" width="300"> -->
+          <h1 class="h2 mb-2 font-weight-normal text-dark">e-Mercado</h1>
+          <h4 class="h4 mb-4 text-dark">Incicie Sesión</h4>
+          <input type="text" id="user" class="form-control mt-1 bg-transparent text-body font-weight-bold" placeholder="Usuario"
+            required>
+          <input type="email" id="email" class="form-control bg-transparent text-body font-weight-bold mt-1" placeholder="Email"
+            required>
+
+          <input type="password" id="password" class="form-control mt-1 bg-transparent text-body font-weight-bold" placeholder="Contraseña"
+            required>
+          <div class="form-check mt-2 mb-2">
+            <input type="checkbox" value="Recordarme" class="form-check-input" id="checkbox">
+            <label for="checkbox" class="form-check-label">Recordarme</label>
+          </div>
+          <input type="submit" class="btn btn-primary btn-block" id="boton" value="Iniciar Sesión" ></input>
         </div>
-        <input type="submit" class="btn btn-primary btn-block" id="boton" value="Iniciar Sesión"></input>
+      </form>
+      <div id="div-btn-google">
+        <button class="btn btn-primary btn-block mt-2" id="login-google"><i class="fab fa-google text-light"></i>
+          Acceder con google</button>
       </div>
-    </form>
-    <div id="div-btn-google">
-      <button class="btn btn-primary btn-block mt-2" id="login-google"><i class="fab fa-google text-light"></i> Acceder con google</button>
+      <div class="m-auto">
+        <p class="mt-5 mb-3 text-light">&copy; 2019-2021</p>
+      </div>
     </div>
-    </div>
-    <p class="mt-5 mb-3 text-muted">&copy; 2019-2021</p>
   </div>
   
  

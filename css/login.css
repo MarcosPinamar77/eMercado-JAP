@@ -1,0 +1,33 @@
+html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-top: 40px;
+      padding-bottom: 40px;
+      background-color: #c6cdd4;
+      background-image: url('../img/bg1.jpg'); 
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover; 
+      
+    }
+
+    .signin {
+      width: 100%;
+      max-width: 330px;
+      padding: 15px;
+      margin: auto;
+    }
+    /* .form-container{
+        background-color: #3cd2b5;
+    } */
+    .contentAll{
+        background-color: #3cd2b4;
+        width: 55%;
+    }
