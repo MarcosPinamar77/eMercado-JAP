@@ -179,7 +179,7 @@ function addComment() {
   starTwo.style.color = 'black';
   starThree.style.color = 'black';
   starFour.style.color = 'black';
-  starFive.style.color = 'black';00
+  starFive.style.color = 'black';
 }
 
 //Función para que la calificación seleccionada se muestre en pantalla
@@ -276,7 +276,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
   });
   
-  commentSend.addEventListener('click', addComment)
+  commentSend.addEventListener('click', addComment);
+  commentInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      addComment();
+    }
+});
   $(function () {
     $('.carousel').carousel({
         interval: 1000
