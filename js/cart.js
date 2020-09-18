@@ -22,7 +22,7 @@ function showCart(array){
                             <button class="btn btn-sm btn-light"><b>+</b></button>
                             </div>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 text-center">
                           <h5>Falta</h5>
                       </div>
                     </div>
