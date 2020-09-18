@@ -6,6 +6,8 @@ const PRODUCT_INFO_URL = "https://japdevdep.github.io/ecommerce-api/product/5678
 const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/product/5678-comments.json";
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
+let user_nav = document.getElementById('user-nav');
+
 
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
@@ -40,11 +42,7 @@ var getJSONData = function(url){
     });
 }
 
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-});
+
 
 
  // Your web app's Firebase configuration
@@ -69,10 +67,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
     console.log(user)
     cerrarSesion();
-    let user_nav = document.getElementById('user-nav');
+    
     user_nav.innerHTML = user.displayName;
     localStorage.setItem('usuario', user.displayName);
-    console.log(user.displayName);
+    //console.log(user.displayName);
     //window.location.href = 'index.html';
     
     const displayName = user.displayName;
@@ -92,6 +90,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
+// Función que se ejecuta al iniciar sesión con google
 function iniciarSesion(){
   loginGoogle.addEventListener('click', async()=>{
     //console.log("Click")
@@ -107,6 +106,7 @@ function iniciarSesion(){
   
 }
 
+// Función que se ejecuta al cerrar sesión con google
 function cerrarSesion(){
 logout.addEventListener('click', ()=>{
   firebase.auth().signOut();
@@ -116,6 +116,26 @@ logout.addEventListener('click', ()=>{
 
 cerrarSesion();
 
-let user_nav = document.getElementById('user-nav');
-user_nav.innerHTML = localStorage.getItem('usuario');
 
+user_nav.innerHTML = localStorage.getItem('usuario');
+let dropdownMenu = document.getElementById('dropdownContainer')
+console.log(user_nav.innerHTML)
+
+//Función que se ejecuta una vez que se haya lanzado el evento de
+//que el documento se encuentra cargado, es decir, se encuentran todos los
+//elementos HTML presentes.
+document.addEventListener("DOMContentLoaded", function(e){
+   setTimeout(function(){
+ if(!localStorage.getItem('usuario')){
+       dropdownMenu.innerHTML =`
+         <li class="nav-item">
+             <a class="py-2 d-md-inline-block nav-link" href="login.html">Iniciar Sesión</a>
+         </li>
+     `
+   }
+
+   }, 2000);
+  
+});
+ 
+ 

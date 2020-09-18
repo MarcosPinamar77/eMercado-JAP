@@ -57,12 +57,12 @@
                 <li class="nav-item">
                     <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown" id="dropdownContainer">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span id="user-nav">Nombre</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="my-profile.html" <i class="fas fa-user"></i>>Mi Perfil</a>
+                        <a class="dropdown-item" href="my-profile.html" <i class="fas fa-user"></i>Mi Perfil</a>
                         <a class="dropdown-item active href=" cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
                         <a class="dropdown-item" href="login.html" id="cerrar-sesion"><i class="fas fa-sign-out-alt"></i>Cerrar
                             Sesión</a>
@@ -81,77 +81,55 @@
     </div>
   </div> -->
 
-    <div class="container">
-        <div class="row mt-5 mb-0">
-            <div class="col-9 pt-2">
-                <div class="row">
-                    <div class="col-6">
-                        <h5 class="font-weight-bold mb-0">Producto</h5>
-                    </div>
-                    <div class="col-2">
-                        <h5 class="font-weight-bold mb-0">Precio</h5>
-                    </div>
-                    <div class="col-2 text-center">
-                        <h5 class="font-weight-bold mb-0">Cantidad</h5>
-                    </div>
-                    <div class="col-2 text-center">
-                      <h5 class="font-weight-bold mb-0">Total</h5>
-                    </div>
+    <div class="container mt-5">
+        <div class="col">
+            <div class="row">
+                <div class="col-lg-9 table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Cantidad</th>
+                                <th class="text-center">Precio</th>
+                                <th class="text-center">Total</th>
+                                <th> </th>
+                            </tr>
+                        </thead>
+                        <tbody id="cart-container">
+
+                        </tbody>
+                    </table>
                 </div>
-                <hr class="my-2 mt-0 pt-0">
 
+                <div class="col-lg-3 bg-light">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Resumen</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>$4444</td>
+                            </tr>
+                            <tr>
+                                <td>Costo de envío</td>
+                                <td>$1111</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>$5555</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                <div id="cart-container"></div>
-
-                
-
-
-            </div>
-            <div class="col-3 bg-light p-2">
-                <h5 mb-2><b>Resumen</b></h5>
-                <ul class="list-group list-group-flush pl-0">
-                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Costo de envío</b>
-                        <h6 class="font-weight-bold mb-0">$ 100</h6>
-                    </li>
-                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Subtotal</b>
-                        <h6 class="font-weight-bold mb-0">$ 5555</h6>
-                    </li>
-                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Total</b>
-                        <h6 class="font-weight-bold mb-0">$ 5555</h6>
-                    </li>
-                </ul>
-                <button class="btn btn-success block mt-2">Finalizar compra</button>
+                </div>
             </div>
         </div>
+
     </div>
-    <!-- ------------------------------------------- 
-  <div class="row">
-      <div class="col-8" id="cart-container">
-          <div class="row mb-2">
-              <div class="col-3">
-                <img src="./img/tree1.jpg" class="img-thumbnail">
-              </div>
-              <div class="col-5 text-center">
-                    <h4>Pino de olor para el auto</h4>
-              </div>
-              <div class="col-2">
-                <h5>$100 UYU</h5>
-              </div>
-              <div class="col-2 text-center">
-                <h5>2</h5>
-              </div>  
-          </div>
-          
-      </div>
-      <div class="col-4 bg-dark">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque qui consequuntur voluptate dicta obcaecati dolores commodi cupiditate tempore dolore quam?</p>
-      </div>
-  </div>
-
--->
-
-
-
     <div id="spinner-wrapper">
         <div class="lds-ring">
             <div></div>

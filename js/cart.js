@@ -4,28 +4,31 @@ function showCart(array){
    let cartItems = array.articles;
    htmlToAppend ="";
    for(item in cartItems){
+       let totalCost = cartItems[item].count * cartItems[item].unitCost;
+       if(cartItems[item].currency == "USD"){
+           totalCost = totalCost * 40;
+       }
         htmlToAppend +=`
-        <div class="row mb-2">
-                        <div class="col-2">
-                            <img src="${cartItems[item].src}" class="img-thumbnail">
-                        </div>
-                        <div class="col-4 pl-0">
-                            <h5>${cartItems[item].name}</h5>
-                        </div>
-                        <div class="col-2">
-                            <h5>$${cartItems[item].unitCost} ${cartItems[item].currency}</h5>
-                        </div>
-                        <div class="col-2">
-                          <div class="row justify-content-center">
-                          <button class="btn btn-sm btn-light"><b>-</b></button>
-                            <h5 class="ml-2 mr-2 align-self-center">${cartItems[item].count}</h5>
-                            <button class="btn btn-sm btn-light"><b>+</b></button>
+                    <tr>
+                        <td class="col">
+                        <div class="row pl-3">
+                            <img class="img-fluid" src="${cartItems[item].src}" style="width: 72px; height: 72px;">
+                            <div class="col ml-1 pl-0 pr-0">
+                                <h4 style="width: 80%" class="pr-0">${cartItems[item].name}</h4>
+                                <span>Estado: </span><span class="text-success"><strong>In Stock</strong></span>
                             </div>
                         </div>
-                        <div class="col-2 text-center">
-                          <h5>Falta</h5>
-                      </div>
-                    </div>
+                        </td>
+                        <td class="col" style="text-align: center">
+                        <input type="email" class="form-control" value="${cartItems[item].count}">
+                        </td>
+                        <td class="col text-center"><strong>$${cartItems[item].unitCost} ${cartItems[item].currency}</strong></td>
+                        <td class="col text-center"><strong>$${totalCost} UYU</strong></td>
+                        <td class="col">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button></td>
+                    </tr>
         `
    }
 contenedor.innerHTML += htmlToAppend;
