@@ -3,105 +3,177 @@
 <html lang="en">
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet">
 
-   <!--Firebase Auth-->
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css"/>
-   
+    <!--Firebase Auth-->
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark site-header sticky-top py-2 bg-dark">
-    <a href="index.html" class="navbar-brand d-md-none">e-Mercado</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav container d-flex flex-column flex-md-row justify-content-between">
-            <li class="nav-item">
-              <a class="py-2 d-md-inline-block nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="py-2 d-md-inline-block nav-link" href="categories.html">Categorías</a>
-            </li>
-            <li class="nav-item">
-               <a class="py-2 d-md-inline-block nav-link" href="products.html">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
-            </li>
-            <li class="nav-item dropdown" >
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-               <span id="user-nav">Nombre</span> 
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="my-profile.html"<i class="fas fa-user"></i>>Mi Perfil</a>
-                <a class="dropdown-item active href="cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
-                <a class="dropdown-item" href="login.html" id="cerrar-sesion"><i class="fas fa-sign-out-alt"></i>Cerrar Sesión</a>
-              </div>
-            </li>
-        </ul>
-    </div>
-  </nav>
-  
-  <div class="container p-5">
+    <nav class="navbar navbar-expand-lg navbar-dark site-header sticky-top py-2 bg-dark">
+        <a href="index.html" class="navbar-brand d-md-none">e-Mercado</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav container d-flex flex-column flex-md-row justify-content-between">
+                <li class="nav-item">
+                    <a class="py-2 d-md-inline-block nav-link" href="index.html"><i class="fas fa-home"></i> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="py-2 d-md-inline-block nav-link" href="categories.html">Categorías</a>
+                </li>
+                <li class="nav-item">
+                    <a class="py-2 d-md-inline-block nav-link" href="products.html">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="py-2 d-md-inline-block nav-link" href="sell.html">Vender</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="user-nav">Nombre</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="my-profile.html" <i class="fas fa-user"></i>>Mi Perfil</a>
+                        <a class="dropdown-item active href=" cart.html"><i class="fas fa-shopping-cart"></i> Mi carrito</a>
+                        <a class="dropdown-item" href="login.html" id="cerrar-sesion"><i class="fas fa-sign-out-alt"></i>Cerrar
+                            Sesión</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading" id="change">¡A trabajar! :)</h4>
       <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
       <hr>
       <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
     </div>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  </div> -->
+
+    <div class="container">
+        <div class="row mt-5 mb-0">
+            <div class="col-9 pt-2">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="font-weight-bold mb-0">Producto</h5>
+                    </div>
+                    <div class="col-2">
+                        <h5 class="font-weight-bold mb-0">Precio</h5>
+                    </div>
+                    <div class="col-2 text-center">
+                        <h5 class="font-weight-bold mb-0">Cantidad</h5>
+                    </div>
+                    <div class="col-2">
+                      <h5 class="font-weight-bold mb-0">Total</h5>
+                    </div>
+                </div>
+                <hr class="my-2 mt-0 pt-0">
+
+
+                <div id="cart-container"></div>
+
+                
+
+
+            </div>
+            <div class="col-3 bg-light p-2">
+                <h5 mb-2><b>Resumen</b></h5>
+                <ul class="list-group list-group-flush pl-0">
+                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Costo de envío</b>
+                        <h6 class="font-weight-bold mb-0">$ 100</h6>
+                    </li>
+                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Subtotal</b>
+                        <h6 class="font-weight-bold mb-0">$ 5555</h6>
+                    </li>
+                    <li class="list-group-item pl-0 pt-2 pb-2 h5 bg-transparent"><b class="text-info">Total</b>
+                        <h6 class="font-weight-bold mb-0">$ 5555</h6>
+                    </li>
+                </ul>
+                <button class="btn btn-success block mt-2">Finalizar compra</button>
+            </div>
+        </div>
     </div>
+    <!-- ------------------------------------------- 
+  <div class="row">
+      <div class="col-8" id="cart-container">
+          <div class="row mb-2">
+              <div class="col-3">
+                <img src="./img/tree1.jpg" class="img-thumbnail">
+              </div>
+              <div class="col-5 text-center">
+                    <h4>Pino de olor para el auto</h4>
+              </div>
+              <div class="col-2">
+                <h5>$100 UYU</h5>
+              </div>
+              <div class="col-2 text-center">
+                <h5>2</h5>
+              </div>  
+          </div>
+          
+      </div>
+      <div class="col-4 bg-dark">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque qui consequuntur voluptate dicta obcaecati dolores commodi cupiditate tempore dolore quam?</p>
+      </div>
   </div>
+
+-->
+
+
+
+    <div id="spinner-wrapper">
+        <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 
     <!--Firebase Auth-->
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
-     <!--Iconos-->
-  <script src="https://kit.fontawesome.com/0d5ff3beb4.js" crossorigin="anonymous"></script>
-  
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/0d5ff3beb4.js" crossorigin="anonymous"></script>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>

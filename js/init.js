@@ -109,9 +109,12 @@ function iniciarSesion(){
 
 function cerrarSesion(){
 logout.addEventListener('click', ()=>{
-  firebase.auth().signOut()
+  firebase.auth().signOut();
+  localStorage.clear();
 })
 }
+
+cerrarSesion();
 
 let user_nav = document.getElementById('user-nav');
 user_nav.innerHTML = localStorage.getItem('usuario');
