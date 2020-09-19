@@ -26,7 +26,7 @@ function showCart(array){
                         <td class="col text-center"><strong>$${totalCost} UYU</strong></td>
                         <td class="col">
                         <button type="button" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        <i class="far fa-trash-alt"></i> Borrar
                         </button></td>
                     </tr>
         `
