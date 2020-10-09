@@ -102,7 +102,7 @@
                 </div>
 
                 <div class="col-lg-3 bg-light">
-                    <table class="table table-hover">
+                    <table class="table ">
                         <thead>
                             <tr>
                                 <th>Resumen</th>
@@ -115,12 +115,44 @@
                                 <td id="subtotal">$</td>
                             </tr>
                             <tr>
-                                <td>Costo de envío</td>
-                                <td>$1111</td>
+                                <td colspan="2">
+                                    <div class="accordion border-0" id="accordionExample">
+                                        <div class="card">
+                                          <div class="card-header p-0" id="headingOne">
+                                            <h2 class="m-0">
+                                              <button class="btn btn-block text-left pl-0 border-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                Métodos de envío <i class="fas fa-angle-down"></i>
+                                              </button>
+                                            </h2>
+                                          </div>
+                                      
+                                          <div id="collapseOne" class="collapse p-0 mb-0" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                            <div class="card-body p-0 mb-0">
+                                              <table class="table pl-0 table-hover">
+                                                  <tr class="pl-0">
+                                                      <td><button class="btn" id="premium"><small><strong>Premium</strong> (2-5 días)</small></button></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <td><button class="btn" id="express"><small><strong>Express</strong> (5-8 días)</small></button></td>
+                                                </tr>
+                                                <tr class="mb-0">
+                                                    <td><button class="btn" id="standard"><small><strong>Standard</strong> (12 a 15 días)</small></button></td>
+                                                </tr>
+                                              </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                     </div>
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Envio</td>
+                                <td id="envio">$555</td>
                             </tr>
                             <tr>
                                 <td>Total</td>
-                                <td>$5555</td>
+                                <td id="total">$</td>
                             </tr>
                         </tbody>
                     </table>

@@ -1,6 +1,11 @@
 let contenedor = document.getElementById('cart-container');
 let subtotal = document.getElementById('subtotal');
+let total = document.getElementById('total');
+let premium = document.getElementById('premium');
+let express = document.getElementById('express');
+let standard = document.getElementById('standard');
 
+//Función que dibuja en el HTML el contenido del JSON
 function showCart(array){
    let cartItems = array.articles;
    htmlToAppend ="";
@@ -34,6 +39,7 @@ function showCart(array){
    }
    contenedor.innerHTML = htmlToAppend;
    subtotal.innerHTML += allSubtotal;
+   total.innerHTML += allSubtotal;
    updateSubtotal(cartItems);
    
 }
@@ -47,7 +53,8 @@ function productSubTotal(cartItems){
      return totalCost;   
  };
 
- //Función que actualiza el subtotal x producto y el subtotal del carrito al cambiar la cantidad de productos seleccionados
+ //Función que actualiza el subtotal x producto 
+ //(Acá también se ejecuta la Función que actualiza el subtotal del carrito)
  function updateSubtotal(cartItems){
     
      for(item in cartItems){
@@ -72,6 +79,7 @@ function productSubTotal(cartItems){
       
  }
 
+ //Función que actualiza el subtotal del carrito
 function updateCartSubtotal(cartItems){
     let acumulador = 0;
      for(item in cartItems){
@@ -81,7 +89,9 @@ function updateCartSubtotal(cartItems){
         
      }
      subtotal.innerHTML = "$"+acumulador;
+     total.innerHTML = "$"+acumulador;
  }
+
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -93,5 +103,6 @@ getJSONData(CART_INFO_2)
             let cartInfo = response.data;
             showCart(cartInfo);
         }
-    })
+    });
+    calculateSend();
 });
