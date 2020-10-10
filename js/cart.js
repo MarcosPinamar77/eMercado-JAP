@@ -1,6 +1,8 @@
 let contenedor = document.getElementById('cart-container');
 let subtotal = document.getElementById('subtotal');
 let total = document.getElementById('total');
+let envio = document.getElementById('envio');
+let manySend = document.getElementById('manySend')
 let premium = document.getElementById('premium');
 let express = document.getElementById('express');
 let standard = document.getElementById('standard');
@@ -41,7 +43,7 @@ function showCart(array){
    subtotal.innerHTML += allSubtotal;
    total.innerHTML += allSubtotal;
    updateSubtotal(cartItems);
-   
+   calculateSend();
 }
 
 function productSubTotal(cartItems){
@@ -73,6 +75,7 @@ function productSubTotal(cartItems){
             suma = costNumber * countNumber;
             productSubtotal.innerHTML = suma;
             updateCartSubtotal(cartItems);
+            
         });
          
      }
@@ -88,9 +91,34 @@ function updateCartSubtotal(cartItems){
         acumulador += subtotalNumber;
         
      }
-     subtotal.innerHTML = "$"+acumulador;
-     total.innerHTML = "$"+acumulador;
+     subtotal.innerHTML = acumulador;
+     total.innerHTML = acumulador;
+     calculateSend();
  }
+
+ //Función que calcula el costo de envío de acuerdo al subtotal y el envío seleccionado
+function calculateSend(){
+    let sendCost = 0;
+    let subtotal = document.getElementById('subtotal').innerHTML;
+    let subtotalNumber = parseInt(subtotal, 10);
+    manySend.innerHTML =""
+    envio.innerHTML = "Seleccione"
+    premium.addEventListener('click', function(){
+        sendCost = Math.round(0.15 * subtotalNumber);
+        manySend.innerHTML = "$";
+        envio.innerHTML = sendCost;
+    });
+    express.addEventListener('click', function(){
+        sendCost = Math.round(0.07 * subtotalNumber);
+        manySend.innerHTML = "$";
+        envio.innerHTML = sendCost;
+    });
+    standard.addEventListener('click', function(){
+        sendCost = Math.round(0.05 * subtotalNumber);
+        manySend.innerHTML = "$";
+        envio.innerHTML = sendCost;
+    })
+}
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
@@ -104,5 +132,5 @@ getJSONData(CART_INFO_2)
             showCart(cartInfo);
         }
     });
-    calculateSend();
+    
 });
