@@ -1,4 +1,5 @@
 let contenedor = document.getElementById('cart-container');
+let cont2 = contenedor.children;
 let subtotal = document.getElementById('subtotal');
 let total = document.getElementById('total');
 let envio = document.getElementById('envio');
@@ -6,15 +7,21 @@ let manySend = document.getElementById('manySend')
 let premium = document.getElementById('premium');
 let express = document.getElementById('express');
 let standard = document.getElementById('standard');
-
+let formSends = document.getElementById('form-Sends');
+let radioCredit = document.getElementById('creditRadio').checked;
+let transferRadio = document.getElementById('transferRadio').checked;
+let aceptarPago = document.getElementById('aceptarPago');
+let radioSend = document.getElementsByClassName('radioSend');
+let valorEnvio = 0;
+let cartItems = [];
 //Función que dibuja en el HTML el contenido del JSON
-function showCart(array){
-   let cartItems = array.articles;
-   htmlToAppend ="";
-   let allSubtotal = 0;
-   for(item in cartItems){
+function showCart(array) {
+    let cartItems = array.articles;
+    htmlToAppend = "";
+    let allSubtotal = 0;
+    for (item in cartItems) {
         allSubtotal += productSubTotal(cartItems);
-        htmlToAppend +=`
+        htmlToAppend += `
                     <tr>
                         <td class="col">
                         <div class="row pl-3">
@@ -36,101 +43,111 @@ function showCart(array){
                         </button></td>
                     </tr>
         `
-    
-        
-   }
-   contenedor.innerHTML = htmlToAppend;
-   subtotal.innerHTML += allSubtotal;
-   total.innerHTML += allSubtotal;
-   updateSubtotal(cartItems);
-   calculateSend();
+
+
+    }
+    contenedor.innerHTML = htmlToAppend;
+    subtotal.innerHTML += allSubtotal;
+    updateSubtotal(cartItems);
+    total.innerHTML += allSubtotal; 
+
 }
 
-function productSubTotal(cartItems){
+function productSubTotal(cartItems) {
     // funcion que devuelva el costo total de un producto segun la cantidad
     let totalCost = cartItems[item].count * cartItems[item].unitCost;
-        if(cartItems[item].currency == "USD"){
-            totalCost = totalCost * 40;
-        }
-     return totalCost;   
- };
+    if (cartItems[item].currency == "USD") {
+        totalCost = totalCost * 40;
+    }
+    return totalCost;
+};
 
- //Función que actualiza el subtotal x producto 
- //(Acá también se ejecuta la Función que actualiza el subtotal del carrito)
- function updateSubtotal(cartItems){
-    
-     for(item in cartItems){
+//Función que actualiza el subtotal x producto 
+//(Acá también se ejecuta la Función que actualiza el subtotal del carrito)
+
+function updateSubtotal(cartItems) {
+
+    for (item in cartItems) {
         let suma = 0;
-         let count = document.getElementById('productCount'+item);
-         let cost = document.getElementById('productCost'+item);
-         let costNumber = parseInt(cost.innerHTML, 10);
-         let productSubtotal = document.getElementById('productSubtotal'+item);  
+        let count = document.getElementById('productCount' + item);
+        let cost = document.getElementById('productCost' + item);
+        let costNumber = parseInt(cost.innerHTML, 10);
+        let productSubtotal = document.getElementById('productSubtotal' + item);
 
-         if(cartItems[item].currency == "USD"){
+        if (cartItems[item].currency == "USD") {
             costNumber = costNumber * 40;
         }
-         
-         count.addEventListener('change', function(){
+
+        count.addEventListener('change', function() {
             let countNumber = count.value;
             suma = costNumber * countNumber;
             productSubtotal.innerHTML = suma;
             updateCartSubtotal(cartItems);
-            
         });
-         
-     }
-      
- }
 
- //Función que actualiza el subtotal del carrito
-function updateCartSubtotal(cartItems){
+    }
+   
+}
+
+//Función que actualiza el subtotal del carrito
+function updateCartSubtotal(cartItems) {
     let acumulador = 0;
-     for(item in cartItems){
-         let productSubtotal = document.getElementById('productSubtotal'+item).innerHTML;
+    for (item in cartItems) {
+        let productSubtotal = document.getElementById('productSubtotal' + item).innerHTML;
         let subtotalNumber = parseInt(productSubtotal, 10);
         acumulador += subtotalNumber;
-        
-     }
-     subtotal.innerHTML = acumulador;
-     total.innerHTML = acumulador;
-     calculateSend();
- }
 
- //Función que calcula el costo de envío de acuerdo al subtotal y el envío seleccionado
-function calculateSend(){
-    let sendCost = 0;
-    let subtotal = document.getElementById('subtotal').innerHTML;
-    let subtotalNumber = parseInt(subtotal, 10);
-    manySend.innerHTML =""
-    envio.innerHTML = "Seleccione"
-    premium.addEventListener('click', function(){
-        sendCost = Math.round(0.15 * subtotalNumber);
-        manySend.innerHTML = "$";
-        envio.innerHTML = sendCost;
-    });
-    express.addEventListener('click', function(){
-        sendCost = Math.round(0.07 * subtotalNumber);
-        manySend.innerHTML = "$";
-        envio.innerHTML = sendCost;
-    });
-    standard.addEventListener('click', function(){
-        sendCost = Math.round(0.05 * subtotalNumber);
-        manySend.innerHTML = "$";
-        envio.innerHTML = sendCost;
-    })
+    }
+    subtotal.innerHTML = acumulador;
+    envio.innerHTML = Math.round(acumulador * valorEnvio);
+    total.innerHTML = Math.round(acumulador + (acumulador * valorEnvio));
 }
+
+
+formSends.addEventListener('change', function() {
+    //console.log(this.buttonSend[0].checked);
+    for (item in this.buttonSend) {
+        if (this.buttonSend[item].checked) {
+            valorEnvio = parseFloat(this.buttonSend[item].value);
+        }
+    }
+    updateCartSubtotal(cartItems)
+});
+
+
+//calculateSend2()
+//Función para deshabilitar inputs de la opción de pago que no está seleccionada
+function radioCreditSelected() {
+    document.getElementById('transferNumber').disabled = true;
+    document.getElementById('cardNumber').disabled = false;
+    document.getElementById('mounth').disabled = false;
+    document.getElementById('day').disabled = false;
+    document.getElementById('cvs').disabled = false;
+};
+document.getElementById('creditRadio').addEventListener('change', radioCreditSelected);
+
+function radioTransferSelected() {
+    document.getElementById('transferNumber').disabled = false;
+    document.getElementById('cardNumber').disabled = true;
+    document.getElementById('mounth').disabled = true;
+    document.getElementById('day').disabled = true;
+    document.getElementById('cvs').disabled = true;
+
+};
+document.getElementById('transferRadio').addEventListener('change', radioTransferSelected)
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-getJSONData(CART_INFO_2)
-    .then(response=>{
-        if (response.status === "ok"){
-            let cartInfo = response.data;
-            showCart(cartInfo);
-        }
-    });
-    
+document.addEventListener("DOMContentLoaded", function(e) {
+    getJSONData(CART_INFO_2)
+        .then(response => {
+            if (response.status === "ok") {
+                let cartInfo = response.data;
+                cartItems = response.data.articles;
+                showCart(cartInfo);
+            }
+        });
+    console.log(contenedor.children)
 });

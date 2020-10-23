@@ -127,18 +127,83 @@
                                           </div>
                                       
                                           <div id="collapseOne" class="collapse p-0 mb-0" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body p-0 mb-0">
-                                              <table class="table pl-0 table-hover">
-                                                  <tr class="pl-0">
-                                                      <td><button class="btn" id="premium"><small><strong>Premium</strong> (2-5 días)</small></button></td>
-                                                  </tr>
-                                                  <tr>
-                                                    <td><button class="btn" id="express"><small><strong>Express</strong> (5-8 días)</small></button></td>
-                                                </tr>
-                                                <tr class="mb-0">
-                                                    <td><button class="btn" id="standard"><small><strong>Standard</strong> (12 a 15 días)</small></button></td>
-                                                </tr>
-                                              </table>
+                                            <div class="card-body p-3 mb-0">
+                                                <form action="" class="form" id="form-Sends">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input radioSend" type="radio" id="premium" name="buttonSend" value="0.15">
+                                                        <label class="form-check-label" for="premium"><small><strong>Premium</strong> (2-5 días)</small></label>
+                                                    </div>
+                                                    <div class="form-check mt-1 mb-1">
+                                                        <input class="form-check-input radioSend" type="radio" id="express" name="buttonSend" value="0.07">
+                                                        <label class="form-check-label" for="express"><small><strong>Express</strong> (5-8 días)</small></label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input radioSend" type="radio" id="standard" name="buttonSend" value="0.05">
+                                                        <label class="form-check-label" for="standard"><small><strong>Standard</strong> (12 a 15 días)</small></label>
+                                                    </div>
+                                                </form>
+                                                <button type="button" class="btn btn-primary mt-2 btn-sm btn-block" data-toggle="modal" data-target="#adressModal">
+                                                    Dirección
+                                                </button>
+                                                
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="adressModal" tabindex="-1" aria-labelledby="adressModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="adressModalLabel">Dirección</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                       
+                                                                <div class="card-body p-0 mb-0">
+                                                                    <form action="" class="p-2">
+                                                                        <div class="form-group">
+                                                                            <label for="departamento">Departamento</label>
+                                                                            <input type="number" class="form-control" id="departamento">
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col">
+                                                                                <div class="form-group">
+                                                                                    <label for="street">Calle</label>
+                                                                                    <input type="number" class="form-control" id="street">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col">
+                                                                                <div class="form-group">
+                                                                                  
+                                                                                 
+                                                                                  <div class="form-row">
+                                                                                      <div class="col">
+                                                                                        <label for="door">N° de puerta</label>
+                                                                                  <input type="number" class="form-control" id="door">
+                                                                                  </div>
+                                                                                  <div class="col">
+                                                                                    <label for="apto">Apartamento</label>
+                                                                                  <input type="number" class="form-control" id="apto">
+                                                                                  </div>
+                                                                                  </div>
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </form>
+                                                                  </div>
+                                                                
+                                                                    
+                                                           
+                                                     
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptarPago">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                           </div>
                                         </div>
@@ -148,11 +213,97 @@
                             </tr>
                             <tr>
                                 <td>Envio</td>
-                                <td><span id="manySend"></span><span id="envio"></span></td>
+                                <td><span id="manySend">$</span><span id="envio">0</span></td>
                             </tr>
                             <tr>
                                 <td>Total</td>
                                 <td>$<span id="total"></span></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="mx-auto">
+                                    
+                                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+                                        Forma de pago
+                                    </button>
+                                    
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Forma de pago</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td colspan="2">
+                                                    <input type="radio" id="creditRadio" name="radioButtons">
+                                                    <label for="creditRadio">Crédito <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i></label>
+
+                                                    <div class="card-body p-0 mb-0">
+                                                        <form action="" class="p-2">
+                                                            <div class="form-group">
+                                                                <label for="cardNumber">Número de tarjeta</label>
+                                                                <input type="number" class="form-control" id="cardNumber">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                        <label for="cvs">CVV</label>
+                                                                        <input type="number" class="form-control" id="cvs">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col">
+                                                                    <div class="form-group">
+                                                                      <label for="mounth">Vencimiento</label>
+                                                                      <div class="form-row">
+                                                                          <div class="col">
+                                                                      <input type="number" class="form-control" placeholder="MM" id="mounth">
+                                                                      </div>
+                                                                      <div class="col">
+                                                                      <input type="number" class="form-control" placeholder="AA" id="day">
+                                                                      </div>
+                                                                      </div>
+                                                                        
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                      </div>
+                                                    
+                                                        
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input type="radio" id="transferRadio" name="radioButtons">
+                                                    <label for="transferRadio">Transferencia Bancaria <i class="fas fa-exchange-alt"></i> <i class="fab fa-cc-paypal"></i></label>
+                                                    <div class="card-body p-0 mb-0">
+                                                        <form action="" class="p-2">
+                                                            <div class="form-group">
+                                                                <label for="transferNumber">Número de Cuenta</label>
+                                                                <input type="number" class="form-control" id="transferNumber">
+                                                            </div>
+                                                            
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                </tr>
+                                                
+                                            </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptarPago">Aceptar</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
