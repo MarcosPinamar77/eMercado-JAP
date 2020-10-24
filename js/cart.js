@@ -1,19 +1,41 @@
 let contenedor = document.getElementById('cart-container');
-let cont2 = contenedor.children;
 let subtotal = document.getElementById('subtotal');
 let total = document.getElementById('total');
 let envio = document.getElementById('envio');
-let manySend = document.getElementById('manySend')
-let premium = document.getElementById('premium');
-let express = document.getElementById('express');
-let standard = document.getElementById('standard');
 let formSends = document.getElementById('form-Sends');
-let radioCredit = document.getElementById('creditRadio').checked;
-let transferRadio = document.getElementById('transferRadio').checked;
-let aceptarPago = document.getElementById('aceptarPago');
 let radioSend = document.getElementsByClassName('radioSend');
 let valorEnvio = 0;
 let cartItems = [];
+// Boton que guarda y valida la dirección ingresada
+let saveAdress = document.getElementById('saveAdress');
+// Variables donde se accede a los input de dirección 
+let street = document.getElementById('street');
+let departament = document.getElementById('departament');
+let door = document.getElementById('door');
+let apartament = document.getElementById('apartament');
+// Variables donde se guarda la dirección ingresada
+let savedStreet = "";
+let savedDepartament ="";
+let savedDoor ="";
+let savedApartament ="";
+// Variables donde se accede a los input de forma de pago 
+let cardNumber = document.getElementById('cardNumber');
+let cvv = document.getElementById('cvv');
+let expirationMounth = document.getElementById('mounth');
+let expirationYear = document.getElementById('year');
+let transferNumber = document.getElementById('transferNumber')
+// Boton que guarda y valida la forma de pago
+let aceptarPago = document.getElementById('aceptarPago');
+// Variables donde se guarda la forma de pago ingresada
+let savedCardNumber = "";
+let savedCvv = "";
+let savedMounthExpiration ="";
+let savedYearExpiration = "";
+let savedTransferNumber ="";
+//Variables para acceder a los radio buttons de forma de pago
+let creditRadio = document.getElementById('creditRadio')
+let transferRadio = document.getElementById('transferRadio')
+
 //Función que dibuja en el HTML el contenido del JSON
 function showCart(array) {
     let cartItems = array.articles;
@@ -103,7 +125,7 @@ function updateCartSubtotal(cartItems) {
     total.innerHTML = Math.round(acumulador + (acumulador * valorEnvio));
 }
 
-
+//Evento que reguistra cuando se modifica la opción de envío
 formSends.addEventListener('change', function() {
     //console.log(this.buttonSend[0].checked);
     for (item in this.buttonSend) {
@@ -115,27 +137,107 @@ formSends.addEventListener('change', function() {
 });
 
 
-//calculateSend2()
 //Función para deshabilitar inputs de la opción de pago que no está seleccionada
 function radioCreditSelected() {
     document.getElementById('transferNumber').disabled = true;
     document.getElementById('cardNumber').disabled = false;
     document.getElementById('mounth').disabled = false;
-    document.getElementById('day').disabled = false;
-    document.getElementById('cvs').disabled = false;
+    document.getElementById('year').disabled = false;
+    document.getElementById('cvv').disabled = false;
 };
-document.getElementById('creditRadio').addEventListener('change', radioCreditSelected);
-
+//Evento que inhabilita los campos de la forma de pago que no está seleccionada
+creditRadio.addEventListener('change', radioCreditSelected);
+//Función para deshabilitar inputs de la opción de pago que no está seleccionada
 function radioTransferSelected() {
     document.getElementById('transferNumber').disabled = false;
     document.getElementById('cardNumber').disabled = true;
     document.getElementById('mounth').disabled = true;
-    document.getElementById('day').disabled = true;
-    document.getElementById('cvs').disabled = true;
+    document.getElementById('year').disabled = true;
+    document.getElementById('cvv').disabled = true;
 
 };
-document.getElementById('transferRadio').addEventListener('change', radioTransferSelected)
+//Evento que inhabilita los campos de la forma de pago que no está seleccionada
+transferRadio.addEventListener('change', radioTransferSelected)
 
+let resumeAdress = document.getElementById('resumeAdress');
+//Función que guarda y valida la dirección
+function saveAndValidateAdress(){
+    if(street.value != 0 && door.value != 0 && departament.value != "Seleccione Departamento"){  
+        savedStreet = street.value;
+        savedDepartament = departament.value;
+        savedDoor = door.value;
+        if(apartament.value != 0){
+            savedApartament = "Apto " + apartament.value;
+        }
+        
+        $('#adressModal').modal('hide');
+        resumeAdress.innerHTML = savedDepartament + " " + savedStreet + " " + savedDoor + " " + savedApartament;
+        
+        
+    }
+    else{
+        let alert = document.getElementById('alertAdress');
+        alert.innerHTML = `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faltan completar campos.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        `
+    }
+    
+}
+
+// Función que guarda y valida el pago
+function saveAndValidatePayment(){
+    if(creditRadio.checked){
+        if(cardNumber.value != 0 && cvv != 0 && expirationMounth != 0 && expirationYear != 0){
+            savedCardNumber = cardNumber.value;
+            savedCvv = cvv.value;
+            savedMounthExpiration = expirationMounth.value;
+            savedYearExpiration = expirationYear.value;
+            $('#paymentModal').modal('hide');
+        }
+        else{
+            let alertCredit = document.getElementById('alertCredit');
+        alertCredit.innerHTML = `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            Faltan completar campos.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        `
+        }
+    }
+    else if(transferRadio.checked){
+        if(transferNumber.value != 0){
+            savedTransferNumber = transferNumber.value;
+            $('#paymentModal').modal('hide');
+        }
+        else{
+            let alertTransfer = document.getElementById('alertTransfer');
+            alertTransfer.innerHTML = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Faltan completar campos.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            `
+        }
+    }
+    else{
+        alert("Debe seleccionar una opción de pago")
+    }  
+}
+
+//Evento que guarda la dirección ingresada
+saveAdress.addEventListener('click', saveAndValidateAdress)
+
+//Evento que guarda la forma de pago ingresada
+aceptarPago.addEventListener('click', saveAndValidatePayment)
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -149,5 +251,5 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 showCart(cartInfo);
             }
         });
-    console.log(contenedor.children)
+    
 });

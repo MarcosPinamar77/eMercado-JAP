@@ -146,7 +146,7 @@
                                                     Dirección
                                                 </button>
                                                 
-                                                <!-- Modal -->
+                                                <!-- Modal Dirección-->
                                                 <div class="modal fade" id="adressModal" tabindex="-1" aria-labelledby="adressModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -157,18 +157,42 @@
                                                         </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                       
+                                                                
                                                                 <div class="card-body p-0 mb-0">
+                                                                    <span id="alertAdress"></span>
                                                                     <form action="" class="p-2">
                                                                         <div class="form-group">
-                                                                            <label for="departamento">Departamento</label>
-                                                                            <input type="number" class="form-control" id="departamento">
+                                                                            <label for="departament">Departamento</label>
+                                                                            <select class="custom-select custom-select-md" id="departament">
+                                                                                <option selected>Seleccione Departamento</option>
+                                                                                <option value="Artigas">Artigas</option>
+                                                                                <option value="Canelones">Canelones</option>
+                                                                                <option value="Cerro Largo">Cerro Largo</option>
+                                                                                <option value="Colonia">Colonia</option>
+                                                                                <option value="Durazno">Durazno</option>
+                                                                                <option value="Flores">Flores</option>
+                                                                                <option value="Florida">Florida</option>
+                                                                                <option value="Lavalleja">Lavalleja</option>
+                                                                                <option value="Maldonado">Maldonado</option>
+                                                                                <option value="Montevideo">Montevideo</option>
+                                                                                <option value="Paysandú">Paysandú</option>
+                                                                                <option value="Río Negro">Río Negro</option>
+                                                                                <option value="Rivera">Rivera</option>
+                                                                                <option value="Rocha">Rocha</option>
+                                                                                <option value="Salto">Salto</option>
+                                                                                <option value="San José">San José</option>
+                                                                                <option value="Soriano">Soriano</option>
+                                                                                <option value="Tacuarembó">Tacuarembó</option>
+                                                                                <option value="Treinta y Tres">Treinta y Tres</option>
+                                                                              </select>
+                                                                              <small class="text-danger">Obligatorio</small>
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col">
                                                                                 <div class="form-group">
                                                                                     <label for="street">Calle</label>
-                                                                                    <input type="number" class="form-control" id="street">
+                                                                                    <input type="text" class="form-control" id="street">
+                                                                                    <small class="text-danger">Obligatorio</small>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col">
@@ -178,11 +202,12 @@
                                                                                   <div class="form-row">
                                                                                       <div class="col">
                                                                                         <label for="door">N° de puerta</label>
-                                                                                  <input type="number" class="form-control" id="door">
+                                                                                        <input type="number" class="form-control" id="door" min="1" max="999999">
+                                                                                        <small class="text-danger">Obligatorio</small>
                                                                                   </div>
                                                                                   <div class="col">
-                                                                                    <label for="apto">Apartamento</label>
-                                                                                  <input type="number" class="form-control" id="apto">
+                                                                                    <label for="apartament">Apartamento</label>
+                                                                                  <input type="number" class="form-control" id="apartament" min="1">
                                                                                   </div>
                                                                                   </div>
                                                                                     
@@ -191,14 +216,10 @@
                                                                         </div>
                                                                     </form>
                                                                   </div>
-                                                                
-                                                                    
-                                                           
-                                                     
                                                         </div>
                                                         <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptarPago">Guardar</button>
+                                                        <button type="button" class="btn btn-primary"  id="saveAdress">Guardar</button>
                                                         </div>
                                                     </div>
                                                     </div>
@@ -213,7 +234,7 @@
                             </tr>
                             <tr>
                                 <td>Envio</td>
-                                <td><span id="manySend">$</span><span id="envio">0</span></td>
+                                <td><span id="manySend">$</span><span id="envio">Debe Seleccionar</span></td>
                             </tr>
                             <tr>
                                 <td>Total</td>
@@ -222,12 +243,12 @@
                             <tr>
                                 <td colspan="2" class="mx-auto">
                                     
-                                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#exampleModal">
+                                    <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#paymentModal">
                                         Forma de pago
                                     </button>
                                     
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <!-- Modal de Forma de pago-->
+                                    <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -246,6 +267,7 @@
                                                     <div class="card-body p-0 mb-0">
                                                         <form action="" class="p-2">
                                                             <div class="form-group">
+                                        <span id="alertCredit"></span>
                                                                 <label for="cardNumber">Número de tarjeta</label>
                                                                 <input type="number" class="form-control" id="cardNumber">
                                                             </div>
@@ -253,7 +275,7 @@
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label for="cvs">CVV</label>
-                                                                        <input type="number" class="form-control" id="cvs">
+                                                                        <input type="number" class="form-control" id="cvv" max="999" min="001">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col">
@@ -261,10 +283,10 @@
                                                                       <label for="mounth">Vencimiento</label>
                                                                       <div class="form-row">
                                                                           <div class="col">
-                                                                      <input type="number" class="form-control" placeholder="MM" id="mounth">
+                                                                      <input type="number" class="form-control" placeholder="MM" id="mounth" min="1" max="12">
                                                                       </div>
                                                                       <div class="col">
-                                                                      <input type="number" class="form-control" placeholder="AA" id="day">
+                                                                      <input type="number" class="form-control" placeholder="AA" id="year" min="2020" max="2030" value="2020">
                                                                       </div>
                                                                       </div>
                                                                         
@@ -284,6 +306,7 @@
                                                     <div class="card-body p-0 mb-0">
                                                         <form action="" class="p-2">
                                                             <div class="form-group">
+                                                                <span id="alertTransfer"></span>
                                                                 <label for="transferNumber">Número de Cuenta</label>
                                                                 <input type="number" class="form-control" id="transferNumber">
                                                             </div>
@@ -297,7 +320,92 @@
                                             </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="aceptarPago">Aceptar</button>
+                                            <button type="button" class="btn btn-primary"  id="aceptarPago">Aceptar</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="mx-auto">
+                                    
+                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#buy">
+                                        Comprar
+                                    </button>
+                                    
+                                    <!-- Modal Finalizar Compra-->
+                                    <div class="modal fade" id="buy" tabindex="-1" aria-labelledby="buyLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="buyLabel">Finalizar Compra</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <table class="table table-hover">
+                                                <tr>
+                                                    <td>
+                                                        Dirección
+                                                    </td>
+                                                    <td id="resumeAdress">
+                                                        Falta ingresar dirección
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Forma de pago
+                                                    </td>
+                                                    <td>
+                                                        Falta ingresar forma de pago
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Subtotal
+                                                    </td>
+                                                    <td class="text-right">
+                                                        Costo:
+                                                    </td>
+                                                    <td>
+                                                        $4444
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        Envío
+                                                    </td>
+                                                    <td class="d-flex justify-content-between">
+                                                        <span>premium</span>
+                                                        <span class="text-right">Costo:</span>
+                                                    </td>
+                                                    <td>
+                                                        $32232
+                                                    </td>
+                                                </tr>
+                                                
+                                                <tr>
+                                                    <td>
+                                                        <strong>Costo Total</strong>
+                                                    </td>
+                                                    <td class="text-right">
+                                                        Costo:
+                                                    </td>
+                                                    <td>
+                                                        $345345
+                                                    </td>
+                                                </tr>
+                                                
+                                            </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="finish">Confirmar Compra</button>
                                             </div>
                                         </div>
                                         </div>
