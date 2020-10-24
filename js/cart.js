@@ -41,6 +41,9 @@ let resumePayment = document.getElementById('resumePayment');
 let resumeTotal = document.getElementById('resumeTotal');
 let resumeSend = document.getElementById('resumeSend');
 let resumeSendCost = document.getElementById('resumeSendCost');
+//Acceso al botón que confirma la compra
+let finishPurchase = document.getElementById('finish');
+
 
 //Función que dibuja en el HTML el contenido del JSON
 function showCart(array) {
@@ -253,6 +256,18 @@ saveAdress.addEventListener('click', saveAndValidateAdress)
 
 //Evento que guarda la forma de pago ingresada
 aceptarPago.addEventListener('click', saveAndValidatePayment)
+
+//Función que valida que se hayan seleccionado todos los pasos para realizar la compra
+function finalizePurchase(){
+    if(resumeAdress.innerText != "Falta ingresar dirección" && resumePayment.innerText != "Falta ingresar forma de pago" && resumeSend.innerHTML != "Falta seleccionar"){
+        alert("Compra completa")
+        $('#buy').modal('hide');
+    }
+    else{
+        alert("compra incompleta")
+    }
+}
+finishPurchase.addEventListener('click', finalizePurchase)
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
