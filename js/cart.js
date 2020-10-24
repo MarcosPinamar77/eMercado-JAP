@@ -35,6 +35,12 @@ let savedTransferNumber ="";
 //Variables para acceder a los radio buttons de forma de pago
 let creditRadio = document.getElementById('creditRadio')
 let transferRadio = document.getElementById('transferRadio')
+//Variables para escribir los datos en el resumen final de la compra
+let resumeAdress = document.getElementById('resumeAdress');
+let resumePayment = document.getElementById('resumePayment');
+let resumeTotal = document.getElementById('resumeTotal');
+let resumeSend = document.getElementById('resumeSend');
+let resumeSendCost = document.getElementById('resumeSendCost');
 
 //Función que dibuja en el HTML el contenido del JSON
 function showCart(array) {
@@ -70,8 +76,10 @@ function showCart(array) {
     }
     contenedor.innerHTML = htmlToAppend;
     subtotal.innerHTML += allSubtotal;
+    resumeSubtotal.innerHTML += allSubtotal;
     updateSubtotal(cartItems);
     total.innerHTML += allSubtotal; 
+    resumeTotal.innerHTML += allSubtotal;
 
 }
 
@@ -121,8 +129,11 @@ function updateCartSubtotal(cartItems) {
 
     }
     subtotal.innerHTML = acumulador;
+    resumeSubtotal.innerHTML = acumulador;
     envio.innerHTML = Math.round(acumulador * valorEnvio);
+    resumeSendCost.innerHTML = Math.round(acumulador * valorEnvio);
     total.innerHTML = Math.round(acumulador + (acumulador * valorEnvio));
+    resumeTotal.innerHTML =  Math.round(acumulador + (acumulador * valorEnvio));
 }
 
 //Evento que reguistra cuando se modifica la opción de envío
@@ -131,6 +142,7 @@ formSends.addEventListener('change', function() {
     for (item in this.buttonSend) {
         if (this.buttonSend[item].checked) {
             valorEnvio = parseFloat(this.buttonSend[item].value);
+            resumeSend.innerHTML = this.buttonSend[item].id;
         }
     }
     updateCartSubtotal(cartItems)
@@ -159,7 +171,8 @@ function radioTransferSelected() {
 //Evento que inhabilita los campos de la forma de pago que no está seleccionada
 transferRadio.addEventListener('change', radioTransferSelected)
 
-let resumeAdress = document.getElementById('resumeAdress');
+
+
 //Función que guarda y valida la dirección
 function saveAndValidateAdress(){
     if(street.value != 0 && door.value != 0 && departament.value != "Seleccione Departamento"){  
@@ -197,6 +210,7 @@ function saveAndValidatePayment(){
             savedCvv = cvv.value;
             savedMounthExpiration = expirationMounth.value;
             savedYearExpiration = expirationYear.value;
+            resumePayment.innerHTML = "Tarjeta de crédito"
             $('#paymentModal').modal('hide');
         }
         else{
@@ -214,6 +228,7 @@ function saveAndValidatePayment(){
     else if(transferRadio.checked){
         if(transferNumber.value != 0){
             savedTransferNumber = transferNumber.value;
+            resumePayment.innerHTML = "Transferencia bancaria"
             $('#paymentModal').modal('hide');
         }
         else{
