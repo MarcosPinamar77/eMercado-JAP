@@ -75,31 +75,49 @@
 <div class="container p-3">
     <h2 class="text-center">Mi perfil</h2>
     <div class="mx-auto">
-        <div class="row mx-auto">
-            <div class="col-3">
-                <p>Usuario:</p>
-                <p>Nombre:</p>
-                <p>Fecha de Nacimiento</p>
-                <p>Email:</p>
-                <p>Teléfono</p>
-            </div>
-            <div class="col-9">
-                <p id="writeName"></p>
-                <p id="writeLastName"></p>
-                <p id="writeAge"></p>
-                <p id="writeEmail"></p>
-                <p id="writeTelephone"></p>
-            </div>
-        </div>
+      <div class="row mt-3">
+        <img src="" alt="" class="rounded mx-auto d-block img-fluid rounded-circle w-25" id="profileImage">
+      </div>
+      <div class="mx-auto">
+        <table class="table table-dark col-7 mx-auto mt-3">
+          <tr>
+            <td class="text-left pr-5">Usuario</td>
+            <td class="text-left" id="writeName"></td>
+          </tr>
+          <tr>
+            <td class="text-left pr-5">Nombre</td>
+            <td class="text-left" id="writeLastName"></td>
+          </tr>
+          <tr>
+            <td class="text-left pr-5">Fecha de Nacimiento</td>
+            <td class="text-left" id="writeAge"></td>
+          </tr>
+          <tr>
+            <td class="text-left pr-5">Email</td>
+            <td class="text-left" id="writeEmail"></td>
+          </tr>
+          <tr>
+            <td class="text-left pr-5">Teléfono</td>
+            <td class="text-left" id="writeTelephone"></td>
+          </tr>
+        </table>
+        
+        
+      </div>
+      
     </div>
 
-
+<div class="mx-auto text-center mb-2" id="ifNotUser">
+ 
+</div>
 
 
         <!-- Boton que abre el modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeProfile">
+        <div class="mx-auto w-50">
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#changeProfile" id="buttonModal">
           Modificar Perfil
         </button>
+        </div>
         <!-- Modal -->
         <div class="modal fade" id="changeProfile" tabindex="-1" aria-labelledby="changeProfileLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -137,7 +155,12 @@
                       <label for="telephone">Teléfono</label>
                       <input type="number" id="telephone" placeholder="Ingresa tu teléfono" name="telefono" class="form-control" required>
                     </div>
+                    <div class="col-12 col-lg-6">
+                      <label for="image">Ingrese URL de imágen</label>
+                      <input type="text" id="image" placeholder="Ingresa URL de imágen" name="imagen" class="form-control" required>
+                    </div>
                   </div>
+                  
               </form>
               </div>
               <div class="modal-footer">
@@ -148,6 +171,7 @@
           </div>
         </div>
      
+        
   </div>
 
   <footer class="text-muted bg-light">

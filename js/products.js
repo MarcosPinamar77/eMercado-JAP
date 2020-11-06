@@ -52,22 +52,31 @@ function showProducts() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))){
         
       htmlContentToAppend += `
-        <a href="./product-info.html" class="list-group-item list-group-item-action">
-            <div class="row">
-                <div class="col-3">
-                    <img src="${product.imgSrc}"  class="img-thumbnail">
+      
+
+        <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img src="${product.imgSrc}" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"/>
+                    <div class="card-body">
+                      <h5 class="card-title">${product.name}</h5>
+                      <p class="card-text">
+                      ${product.description}
+                      </p>
+                      <p class="card-text"><small class="text-muted">${product.cost} ${product.currency}</small></p>
+                     
+                      
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                        <a href="./product-info.html" >
+                          <button type="button" class="btn btn-sm btn-outline-secondary">Ver Producto</button>
+                          </a>
+                        </div>
+                        <small class="text-muted">${product.soldCount} vendidos</small>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                        <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4>${product.name}</h4>
-                            <small class="text-muted">${product.soldCount} vendidos</small>
-                            </div>
-                            <p>${product.description}</p>
-                            <p class="text-muted">${product.cost} ${product.currency}</p>
-                        </div> 
-         
-            </div>
-        </a>
+
       `  
     }
     }
