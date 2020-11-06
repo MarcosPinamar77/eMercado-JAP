@@ -72,14 +72,84 @@
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+<div class="container p-3">
+    <h2 class="text-center">Mi perfil</h2>
+    <div class="mx-auto">
+        <div class="row mx-auto">
+            <div class="col-3">
+                <p>Usuario:</p>
+                <p>Nombre:</p>
+                <p>Fecha de Nacimiento</p>
+                <p>Email:</p>
+                <p>Teléfono</p>
+            </div>
+            <div class="col-9">
+                <p id="writeName"></p>
+                <p id="writeLastName"></p>
+                <p id="writeAge"></p>
+                <p id="writeEmail"></p>
+                <p id="writeTelephone"></p>
+            </div>
+        </div>
     </div>
+
+
+
+
+        <!-- Boton que abre el modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#changeProfile">
+          Modificar Perfil
+        </button>
+        <!-- Modal -->
+        <div class="modal fade" id="changeProfile" tabindex="-1" aria-labelledby="changeProfileLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="changeProfileLabel">Modificar Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="row">
+                      <div class="col-12 col-lg-6">
+                          <label for="name">Usuario:</label>
+                          <input type="text" id="name" placeholder="Ingresa tu nombre completo" name="nombre" class="form-control" required>
+                      </div>
+                      <div class="col-12 col-lg-6">
+                          <label for="lastName">Nombre:</label>
+                          <input type="text" id="lastName" placeholder="Ingresa tu apellido completo" name="apellido" class="form-control" required>
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-12 col-lg-6">
+                          <label for="age">Edad:</label>
+                          <input type="date" id="age" placeholder="Ingresa tu edad" name="edad" class="form-control" required>
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Ingresa tu email" name="edad" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col-12 col-lg-6">
+                      <label for="telephone">Teléfono</label>
+                      <input type="number" id="telephone" placeholder="Ingresa tu teléfono" name="telefono" class="form-control" required>
+                    </div>
+                  </div>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="saveProfile">Guardar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+     
   </div>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

@@ -69,7 +69,7 @@ function showCart(array) {
                         <td class="col text-center"><strong><span id="productCost${item}">${cartItems[item].unitCost}</span> ${cartItems[item].currency}</strong></td>
                         <td class="col text-center"><strong>$<span id="productSubtotal${item}">${productSubTotal(cartItems)}</span> UYU</strong></td>
                         <td class="col">
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" id="delete${item}">
                         <i class="far fa-trash-alt"></i> Borrar
                         </button></td>
                     </tr>
@@ -146,6 +146,8 @@ formSends.addEventListener('change', function() {
         if (this.buttonSend[item].checked) {
             valorEnvio = parseFloat(this.buttonSend[item].value);
             resumeSend.innerHTML = this.buttonSend[item].id;
+            let noSelection = document.getElementById('noSelection');
+            noSelection.innerHTML = "";
         }
     }
     updateCartSubtotal(cartItems)
@@ -208,7 +210,7 @@ function saveAndValidateAdress(){
 // Función que guarda y valida el pago
 function saveAndValidatePayment(){
     if(creditRadio.checked){
-        if(cardNumber.value != 0 && cvv != 0 && expirationMounth != 0 && expirationYear != 0){
+        if(cardNumber.value != 0 && cvv.value != 0 && expirationMounth.value != 0 && expirationYear.value != 0){
             savedCardNumber = cardNumber.value;
             savedCvv = cvv.value;
             savedMounthExpiration = expirationMounth.value;
@@ -220,7 +222,7 @@ function saveAndValidatePayment(){
             let alertCredit = document.getElementById('alertCredit');
         alertCredit.innerHTML = `
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            Faltan completar campos.
+            Error. Verifique haber completado todos los campos y que los datos sean correctos.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -247,6 +249,7 @@ function saveAndValidatePayment(){
         }
     }
     else{
+        
         alert("Debe seleccionar una opción de pago")
     }  
 }
@@ -260,11 +263,21 @@ aceptarPago.addEventListener('click', saveAndValidatePayment)
 //Función que valida que se hayan seleccionado todos los pasos para realizar la compra
 function finalizePurchase(){
     if(resumeAdress.innerText != "Falta ingresar dirección" && resumePayment.innerText != "Falta ingresar forma de pago" && resumeSend.innerHTML != "Falta seleccionar"){
-        alert("Compra completa")
+        $('#exitePurchase').modal('show');
         $('#buy').modal('hide');
     }
     else{
-        alert("compra incompleta")
+        let alertFinish = document.getElementById('alertFinish');
+        
+        alertFinish.innerHTML = `
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Error. Verifique haber seleccinado un método de envío e ingresado una dirección y forma de envío validas.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+        `
     }
 }
 finishPurchase.addEventListener('click', finalizePurchase)
@@ -281,5 +294,4 @@ document.addEventListener("DOMContentLoaded", function(e) {
                 showCart(cartInfo);
             }
         });
-    
 });
